@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather in Tokyo</title>
+    <style>
+      .topEmoji {
+        display: block;
+        font-size: 30px;
+        text-align: center;
+        margin: 0 0 10px 0;
+      }
+      h1 {
+        color: #1351c8;
+        text-align: center;
+        margin: 0 0 10px 0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2 {
+        text-align: center;
+        margin: 0 0 10px 0;
+        font-weight: normal;
+      }
+      ul {
+        padding: 0;
+        text-align: center;
+      }
+      li {
+        margin: 0 auto;
+        padding: 10px 0;
+        list-style: none;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        transition: all 200ms ease-in-out;
+        max-width: 40%;
+        border-radius: 5%;
+      }
+      li:hover {
+        background: bisque;
+      }
+      p {
+        color: #4c4a4c;
+        padding: 0 0 10px 0;
+      }
+      .days {
+        font-weight: bold;
+      }
+      button {
+        display: block;
+        margin: 20px auto;
+        padding: 16px 24px;
+        line-height: 22px;
+        background: #1a58d1;
+        color: white;
+        border: none;
+        font-size: 13px;
+        border-radius: 30px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+        transition: all 200ms ease-in-out;
+      }
+      button:hover {
+        background-color: #821a31;
+        cursor: pointer;
+      }
+      .coder {
+        text-align: center;
+        color: #4c4a4c;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topEmoji">⛅</div>
+    <h1>Currently 21° in Tokyo</h1>
+    <h2>13° /<strong> 23°</strong></h2>
+    <ul>
+      <li>
+        <div class="days">🌧 Tomorrow</div>
+        <p>10° /<strong> 22°</strong></p>
+      </li>
+      <li>
+        <div class="days">⛅ Saturday</div>
+        <p>15° /<strong> 17°</strong></p>
+      </li>
+      <li>
+        <div class="days">🌞 Sunday</div>
+        <p>25° /<strong> 28°</strong></p>
+      </li>
+    </ul>
+    <button>Change city</button>
+    <div class="coder">Coded by Anastasiia P</div>
+    <script>
+      function otherCity() {
+        let city = prompt("What city do you live in?");
+        let cityTemp = prompt("What is the current outside temperature?");
+        let h1 = document.querySelector("h1");
+        let emoji = document.querySelector("div.topEmoji");
+        h1.innerHTML = "Currently  " + cityTemp + "° in " + city;
+        if (cityTemp <= 0) {
+          emoji.innerHTML = "🥶";
+        } else if (cityTemp > 0 && cityTemp < 10) {
+          emoji.innerHTML = "☁";
+        } else if (cityTemp > 15 && cityTemp < 25) {
+          emoji.innerHTML = "🌞";
+        } else if (cityTemp >= 25) {
+          emoji.innerHTML = "🥵";
+        }
+      }
+      let cityButton = document.querySelector("button");
+      cityButton.addEventListener("click", otherCity);
+    </script>
+  </body>
+</html>
